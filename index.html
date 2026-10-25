@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#101b2e">
+    <title>CyberAware — Safety Chat</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="topbar">
+        <a class="brand" href="#" aria-label="CyberAware home">
+          <span class="brand-mark" aria-hidden="true">C</span>
+          <span>Cyber<span class="brand-light">Aware</span></span>
+        </a>
+        <div class="topbar-right">
+          <span class="status"><span class="status-dot"></span> Safety assistant</span>
+          <button class="text-button" id="api-key-button" type="button">API key</button>
+        </div>
+      </header>
+
+      <main class="main-layout">
+        <aside class="intro-panel">
+          <div class="eyebrow"><span class="shield-icon" aria-hidden="true">✓</span> DIGITAL SAFETY, MADE CLEAR</div>
+          <h1>Stay one step<br>ahead online.</h1>
+          <p class="intro-copy">Get calm, practical guidance on scams, account security, privacy, and what to do if something goes wrong.</p>
+          <div class="help-card">
+            <div class="help-card-icon" aria-hidden="true">i</div>
+            <div>
+              <strong>Need urgent help?</strong>
+              <p>If you’re in immediate danger or have lost money, contact your bank and local law enforcement using their official contact details.</p>
+            </div>
+          </div>
+          <p class="privacy-note"><span aria-hidden="true">◈</span> Your chat stays in this browser session.</p>
+        </aside>
+
+        <section class="chat-panel" aria-label="Cybercrime awareness chat">
+          <div class="chat-heading">
+            <div class="assistant-avatar" aria-hidden="true">
+              <svg viewBox="0 0 24 24" role="presentation"><path d="M12 2.5 4.5 5.7v5.1c0 5 3.2 9.1 7.5 10.7 4.3-1.6 7.5-5.7 7.5-10.7V5.7L12 2.5Zm0 2.2 5.3 2.2v3.9c0 3.9-2.3 7.3-5.3 8.7-3-1.4-5.3-4.8-5.3-8.7V6.9L12 4.7Zm-1 9.9-2-2-1.4 1.4 3.4 3.4 5.5-5.5-1.4-1.4-4.1 4.1Z"/></svg>
+            </div>
+            <div>
+              <h2>CyberAware assistant</h2>
+              <p>Here to help you stay safe online</p>
+            </div>
+            <button class="icon-button clear-button" id="clear-chat" type="button" aria-label="Start a new chat" title="Start a new chat">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 7h12l-1 13H7L6 7Zm3-3h6l1 2H8l1-2ZM4 6h16v2H4V6Zm5 4v7h1v-7H9Zm5 0v7h1v-7h-1Z"/></svg>
+            </button>
+          </div>
+
+          <div class="messages" id="messages" aria-live="polite" aria-relevant="additions text">
+            <div class="message-row assistant-row">
+              <div class="message-avatar" aria-hidden="true">C</div>
+              <div class="message-content">
+                <div class="message-bubble welcome-bubble">
+                  <p>Hi! I’m here to help you recognize cybercrime and take safer next steps. What would you like to know?</p>
+                </div>
+                <span class="message-time">CyberAware · just now</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="suggestions" id="suggestions" aria-label="Suggested questions">
+            <button class="suggestion-chip" type="button">Is this message a scam?</button>
+            <button class="suggestion-chip" type="button">I clicked a suspicious link</button>
+            <button class="suggestion-chip" type="button">How do I secure my accounts?</button>
+          </div>
+
+          <form class="composer" id="chat-form">
+            <label class="sr-only" for="message-input">Your message</label>
+            <textarea id="message-input" rows="1" maxlength="2000" placeholder="Ask about online safety…" required></textarea>
+            <div class="composer-footer">
+              <span class="composer-hint">Never share passwords, verification codes, or full payment details.</span>
+              <button class="send-button" id="send-button" type="submit" aria-label="Send message">
+                <span>Send</span>
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m3 20 18-8L3 4v6l12 2-12 2v6Z"/></svg>
+              </button>
+            </div>
+          </form>
+          <p class="disclaimer">AI can make mistakes. Verify important advice with official sources.</p>
+        </section>
+      </main>
+      <footer class="site-footer">Cybercrime awareness &nbsp;·&nbsp; Think before you click</footer>
+    </div>
+
+    <dialog class="key-dialog" id="key-dialog" aria-labelledby="key-title">
+      <form id="key-form" method="dialog">
+        <button class="dialog-close" id="close-dialog" type="button" aria-label="Close">×</button>
+        <div class="dialog-icon" aria-hidden="true">⌘</div>
+        <h2 id="key-title">Connect Gemini</h2>
+        <p>Enter a Google Gemini API key to start chatting. It is held in this browser tab’s session storage and cleared when the tab’s session ends.</p>
+        <label for="api-key-input">Gemini API key</label>
+        <input id="api-key-input" type="password" autocomplete="off" placeholder="Paste your API key" required>
+        <p class="key-warning">This browser-only demo sends your key directly to Google’s Gemini API. Don’t use it on a public or shared website.</p>
+        <div class="dialog-actions">
+          <button class="secondary-button" id="remove-key" type="button">Remove key</button>
+          <button class="primary-button" type="submit">Save key</button>
+        </div>
+      </form>
+    </dialog>
+  </body>
+</html>
